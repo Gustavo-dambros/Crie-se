@@ -37,29 +37,29 @@
     }
 
     /* Header right */
-    .right_header{
+     .center_header{
         display: flex;
         align-items: center;
         gap: 1vw;
         width: 20%;
-        margin-right: 10vw;
+       
         color: white;
-    }
+        }
 
-    .right_header #pesquisa{
+        .center_header #pesquisa{
         flex: 1;
         min-width: 150px;
         text-align: left;
         padding: 1vh;
         height: 5vh;
-       
+           
         border-radius: var(--radius-sm);
         border: 1px solid var(--border-color);
         background: transparent;
         margin-right: 1vw;
-    }
+        }
 
-    .right_header .filtro{
+        .center_header .filtro{
         display: flex;
         justify-content: center;
         align-items: center;
@@ -69,35 +69,35 @@
         height: 5vh;
         width: 5vh;
         cursor: pointer;
-    }
+        }
 
-    /* Dropdown container for filters */
-    .right_item {
+        /* Dropdown container for filters */
+        .center_item {
         position: relative;
+        }
+
+       .filtros {
+      position: absolute;
+      top: 110%;
+      right: 0;
+      width: 200px;
+      padding: 10px;
+      border-radius: 10px;
+      background-color: rgb(196, 195, 193);
+      color: black;
+      
+      transform-origin: top; /* faz a animação começar do topo */
+      transform: scaleY(0);  /* fechado */
+      opacity: 0;            /* invisível */
+      transition: transform 0.3s ease, opacity 0.3s ease; /* animação */
+      z-index: 10000;
     }
 
-   .filtros {
-  position: absolute;
-  top: 110%;
-  right: 0;
-  width: 200px;
-  padding: 10px;
-  border-radius: 10px;
-  background-color: rgb(196, 195, 193);
-  color: black;
-  
-  transform-origin: top; /* faz a animação começar do topo */
-  transform: scaleY(0);  /* fechado */
-  opacity: 0;            /* invisível */
-  transition: transform 0.3s ease, opacity 0.3s ease; /* animação */
-  z-index: 10000;
-}
-
-.filtros.ativo {
-  transform: scaleY(1); /* aberto */
-  opacity: 1;            /* visível */
-}
-ol{
+    .filtros.ativo {
+      transform: scaleY(1); /* aberto */
+      opacity: 1;            /* visível */
+    }
+    ol{
     cursor: pointer ;
      border-bottom: 1px solid rgb(177, 175, 174);
      padding-bottom: 5px;  
