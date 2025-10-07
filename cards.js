@@ -52,7 +52,7 @@ customOptions.forEach(option => {
         
         // 2. Lógica de cor do botão de filtro (Mantida)
         if (selectedValue){
-            btnfiltro.style.backgroundColor='#121212';
+            btnfiltro.style.backgroundColor='#9e9e9eff';
         }
         if (selectedValue == "Remover") {
             btnfiltro.style.backgroundColor='#ffffff';
