@@ -1,20 +1,23 @@
-:root{
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
     --header-height: 12vh;
     --border-color: rgba(255, 255, 255, 0.133);
-    --muted-bg: #7a7976;
+    --muted-bg: #c7c7c7;
     --card-bg: #121212;
     --radius-lg: 30px;
     --radius-sm: 10px;
 }
 
 /* Reset */
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
-body{
+
+body {
     background-color: var(--muted-bg);
 }
 
@@ -24,7 +27,7 @@ header {
     left: 0;
     right: 0;
     width: 100%;
-    height: 8%;
+    height: 6%;
     margin-left: auto;
     margin-right: auto;
     max-width: 2000px;
@@ -35,16 +38,23 @@ header {
     padding: 0rem 1rem;
     backdrop-filter: blur(15px);
     min-height: 30px;
-    z-index:1000;
+    z-index: 1000;
 }
 
-.left_header img{
-    width: 5vh;
-    height: 5vh;
-    display: block;
+header.scrolled {
+
+    border-bottom: 1px solid rgb(255, 255, 255);
+    transition: background-color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.right_header{
+#logo {
+    margin-top: -10%;
+    margin-left: 0;
+    height: clamp(35px, 6vw, 45px);
+
+}
+
+.right_header {
     width: 20%;
 }
 
@@ -53,42 +63,50 @@ header {
 
 /* Contêiner Central: Responsável por expandir e centralizar o conteúdo */
 .center_header {
-    display: flex; /* Ativa o Flexbox para alinhamento */
-    flex-grow: 1; /* Faz o elemento ocupar todo o espaço restante */
-    justify-content: center; /* CENTRALIZA o conteúdo (search-filter-container) */
-    align-items: center; 
-    width: auto; /* Remove a largura fixa para permitir o crescimento */
+    display: flex;
+    /* Ativa o Flexbox para alinhamento */
+    flex-grow: 1;
+    /* Faz o elemento ocupar todo o espaço restante */
+    justify-content: center;
+    /* CENTRALIZA o conteúdo (search-filter-container) */
+    align-items: center;
+    width: auto;
+    /* Remove a largura fixa para permitir o crescimento */
     color: white;
     margin-left: 12vw;
 }
 
 /* Contêiner da Busca e Filtro (limita o tamanho do input) */
 .search-filter-container {
+    margin-top: 0%;
     display: flex;
     align-items: center;
-    gap: 0; /* Remove o gap, pois os itens estão juntos no .search-box */
+    gap: 0;
+    /* Remove o gap, pois os itens estão juntos no .search-box */
     width: 55%;
-    max-width: 500px; 
+    max-width: 500px;
 }
 
 
 /* --- CAIXA DE PESQUISA INTEGRADA (.search-box) --- */
 .search-box {
-    display: flex; 
-    align-items: center; 
-    position: relative; /* Mantido relative apenas para referência, mas o alinhamento é por Flexbox */
-    flex: 1; 
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* Mantido relative apenas para referência, mas o alinhamento é por Flexbox */
+    flex: 1;
     min-width: 150px;
-    
+
     /* Estilo da caixa externa */
-    height: 5vh;
+    height: 4vh;
     border-radius: var(--radius-sm);
     border: 1px solid var(--border-color);
     background: white;
-    
+
     padding: 0;
     margin: 0;
-    overflow: hidden; /* Importante para o visual integrado */
+    overflow: hidden;
+    /* Importante para o visual integrado */
 }
 
 /* Contêiner da Lupa (alinhado por Flexbox) */
@@ -96,30 +114,37 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 0px; 
+    padding: 0 0px;
     height: 100%;
 }
+
 .search-icon-wrapper img {
-    height: 20px; 
+    height: 20px;
+    margin-left: 10px;
 }
 
 /* Campo de Input de Texto */
 .search-box .search-input {
-    flex-grow: 1; /* Ocupa a maior parte do espaço */
+    flex-grow: 1;
+    /* Ocupa a maior parte do espaço */
     height: 90%;
-    padding: 0 10px; /* Padding ajustado */
+    padding: 0 10px;
+    /* Padding ajustado */
     border: none;
     background: transparent;
     outline: none;
-    
+font-family: "Poppins", sans-serif;
+    font-weight: 500;
     caret-color: #121212;
     font-size: 14px;
 }
-#pesquisa::placeholder{
-    color: #121212; 
+
+#pesquisa::placeholder {
+    color: #121212;
 }
-#pesquisa::placeholder:focus{
-    color: #414141; 
+
+#pesquisa::placeholder:focus {
+    color: #414141;
 }
 
 
@@ -129,21 +154,22 @@ header {
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
-    border: none; 
-    
+    border: none;
+
     /* Encaixe visual */
-    height: 100%; 
-    width: 5vh; 
+    height: 100%;
+    width: 5vh;
     cursor: pointer;
-    border-left: 1px solid var(--border-color); /* Linha divisória sutil */
-    
+    border-left: 1px solid var(--border-color);
+    /* Linha divisória sutil */
+
     /* Garante que o canto arredondado final seja o do botão */
     border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    box-shadow: none; 
-} 
+    box-shadow: none;
+}
 
-.filtro img{
-    height: 20px;
+.filtro img {
+    height: 25px;
 }
 
 
@@ -151,71 +177,86 @@ header {
 
 /* Você pode remover a classe .center_item se ela não for mais usada */
 .filter-dropdown-wrapper {
-    position: relative; 
+    position: relative;
 }
 
 .filtros {
     position: absolute;
     top: 110%;
     right: 0;
-    width: 200px; /* Valor fixo em px é melhor que vw para dropdowns */
+    width: 200px;
+    /* Valor fixo em px é melhor que vw para dropdowns */
     padding: 10px;
     background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 8px 16px #121212;
-    
-    transform-origin: top; 
-    transform: scaleY(0); 
-    opacity: 0; 
+
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
     z-index: 10000;
-    visibility: hidden; /* Esconde o dropdown para não ocupar espaço */
+    visibility: hidden;
+    /* Esconde o dropdown para não ocupar espaço */
 }
 
 .filtros.ativo {
-    transform: scaleY(1); 
-    opacity: 1; 
+    transform: scaleY(1);
+    opacity: 1;
     visibility: visible;
-    transition-delay: 0s; /* Garante que a transição comece imediatamente */
+    transition-delay: 0s;
+    /* Garante que a transição comece imediatamente */
 }
 
 .titulo-lista {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     padding: 10px 15px;
     border-radius: 4px;
     cursor: pointer;
     color: #121212;
     font-size: 14px;
-    margin-bottom: 5px; 
+    margin-bottom: 5px;
 }
 
-.lista-cursos, .custom-select-wrapper {
-    max-height: 150px; /* Limita a altura para rolagem */
-    overflow-y: auto; /* Adiciona barra de rolagem se necessário */
+.lista-cursos,
+.custom-select-wrapper {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    max-height: 150px;
+    /* Limita a altura para rolagem */
+    overflow-y: auto;
+    /* Adiciona barra de rolagem se necessário */
     border: 1px solid var(--border-color);
     border-radius: 4px;
     background-color: #ffffff;
-    
+
 }
+
 .seta {
     /* Define o tempo de transição (para a animação ser suave) */
-    transition: transform 0.3s ease; 
-    
+    transition: transform 0.3s ease;
+
     /* Move a seta para a direita */
-    margin-left: 8px; 
-    
+    margin-left: 8px;
+
     /* Garante que ela esteja alinhada verticalmente */
-    display: inline-block; 
+    display: inline-block;
 }
 
-.Lista-cursos:not(.hidden) ~ .titulo-lista .seta, 
-.titulo-lista.aberto .seta { /* Se você adicionar a classe 'aberto' via JS */
+.Lista-cursos:not(.hidden)~.titulo-lista .seta,
+.titulo-lista.aberto .seta {
+    /* Se você adicionar a classe 'aberto' via JS */
     /* Gira a seta 180 graus */
-    transform: rotate(-90deg); 
+    transform: rotate(-90deg);
 }
 
-.opcoes, .custom-option {
+.opcoes,
+.custom-option {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
     font-size: 14px;
-    color:#121212;
+    color: #121212;
     padding: 10px 15px;
     margin-bottom: 2px;
     cursor: pointer;
@@ -231,7 +272,8 @@ li:hover {
 }
 
 .hidden {
-    display: none !important; /* Força o elemento a desaparecer */
+    display: none !important;
+    /* Força o elemento a desaparecer */
 }
 
 /* ... Outros estilos de cards ... */
@@ -241,17 +283,75 @@ li:hover {
     gap: 20px;
     background-color: var(--muted-bg);
     justify-content: center;
-    margin-top: calc(var(--header-height) + 8vh); 
+    margin-top: calc(var(--header-height) + 8vh);
 }
-.card{
+
+.card {
     width: 180px;
     height: 300px;
     border-radius: var(--radius-lg);
     background-color: var(--card-bg);
     margin: 0 5vh;
 }
+
 .card svg {
     width: 24px;
     height: 24px;
     display: inline-block;
+}
+
+
+footer {
+    margin-top: 8rem;
+    width: 100%;
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 100px;
+    background-color: #121212;
+    color: white;
+    display: flex;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+footer h1,
+p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    margin: 5px 0;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+}
+
+.p {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+footer h1:hover {
+    
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+
+@media (max-width: 768px) {
+    footer {
+        margin-top: 3rem;
+    }
+
+    footer h1,
+    p {
+        font-size: 10px;
+    }
 }

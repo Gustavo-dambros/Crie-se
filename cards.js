@@ -3,7 +3,7 @@ const filtros = document.querySelector(".filtros");
 
 const display = document.querySelector('.titulo-lista');
 const list = document.querySelector('.Lista-cursos');
-const btnfiltro = document.querySelector('.filtro');
+const btnfiltro = document.getElementById("funnel-svgrepo-com.svg");
 
 // Mudei a variável 'options' para pegar apenas os itens de curso,
 // já que a lógica de seleção de texto é específica para eles.
@@ -51,12 +51,15 @@ customOptions.forEach(option => {
         display.classList.remove('aberto'); 
         
         // 2. Lógica de cor do botão de filtro (Mantida)
-        if (selectedValue){
-            btnfiltro.style.backgroundColor='#9e9e9eff';
-        }
-        if (selectedValue == "Remover") {
-            btnfiltro.style.backgroundColor='#ffffff';
-        }
+        if (selectedValue) {
+      // troca o conteúdo interno (a imagem)
+      btnfiltro.innerHTML =  ` <img src="funnel-svgrepo-com-blue.svg" alt="Filtro">`;
+    }
+
+    if (selectedValue === "Remover") {
+      // volta a imagem original
+      btnfiltro.innerHTML = ` <img src="funnel-svgrepo-com.svg" alt="Filtro">`;
+    }
     });
 });
 
