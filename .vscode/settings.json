@@ -1,3 +1,4 @@
 {
-    "editor.fontFamily": "\"Monocraft\""
+    "editor.fontFamily": "\"Monocraft\"",
+    "liveServer.settings.port": 5501
 }

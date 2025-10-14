@@ -354,4 +354,14 @@ a {
     p {
         font-size: 10px;
     }
+    .search-filter-container {
+        width: 70vw;
+        margin-right: 10vw;
+        max-width: none;
+        margin-left: 0;
+        
+    }
+    .right_header {
+        width: 0%;
+    }
 }
