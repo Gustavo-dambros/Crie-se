@@ -76,3 +76,33 @@ document.addEventListener('click', (event) => {
         display.classList.remove('aberto'); 
     }
 });
+
+// --- LÓGICA PARA EXPANDIR OS CARDS ---
+const overlay = document.querySelector('.overlay');
+const cards = document.querySelectorAll('.card');
+
+// Adiciona o evento de clique em cada card
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Se o card já estiver expandido, recolhe ele
+        if (card.classList.contains('expanded')) {
+            card.classList.remove('expanded');
+            overlay.classList.remove('active');
+        } else {
+            // Remove a classe expanded de qualquer outro card
+            cards.forEach(c => c.classList.remove('expanded'));
+            // Expande o card clicado
+            card.classList.add('expanded');
+            overlay.classList.add('active');
+        }
+    });
+});
+
+// Fecha o card expandido ao clicar no overlay
+overlay.addEventListener('click', () => {
+    const expandedCard = document.querySelector('.card.expanded');
+    if (expandedCard) {
+        expandedCard.classList.remove('expanded');
+        overlay.classList.remove('active');
+    }
+});
