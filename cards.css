@@ -354,14 +354,38 @@ a {
     p {
         font-size: 10px;
     }
+    .center_header{
+        margin-left: 5vh;
+    }
     .search-filter-container {
-        width: 70vw;
+        width: 80%;
+        max-width: 400px;
         margin-right: 10vw;
         max-width: none;
         margin-left: 0;
-        
+       
     }
     .right_header {
         width: 0%;
     }
+    .left_header {
+        width: 10%;
+        display: flex;
+        justify-content: center;
+    }
+    .search-box {
+        margin-left: 5vw;
+        height: 3.5vh;
+    }
+    .search-input, #pesquisa{
+        padding: 0px;
+        padding-left: 5px;
+    }
+    .search-input{
+        width: 2vw;
+    }
+    #pesquisa::placeholder {
+    font-size: smaller;
+}
+
 }
