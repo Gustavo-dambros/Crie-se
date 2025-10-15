@@ -106,3 +106,15 @@ overlay.addEventListener('click', () => {
         overlay.classList.remove('active');
     }
 });
+
+
+// --- LÓGICA PARA MOSTRAR/ESCONDER O CONTAINER DE COMENTÁRIOS ---
+// Lógica para mostrar/ocultar comentários ao clicar em qualquer botão .btn-comentarios
+document.querySelectorAll('.btn-comentarios').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const comments = document.querySelector('.coments');
+        console.log('Botão de comentários clicado');
+        comments.classList.toggle('show');
+    });
+});

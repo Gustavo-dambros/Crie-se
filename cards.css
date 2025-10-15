@@ -103,6 +103,23 @@ header.scrolled {
     max-width: 500px;
 }
 
+.container-comentarios {
+    position: fixed;
+    left: 0;
+    bottom: -100px;
+    width: 100vw;
+    height: 70px;
+    /* background removido para transparência */
+    z-index: 2000;
+    box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 0 24px;
+    transition: bottom 0.4s cubic-bezier(.4,1.7,.6,1);
+}
 
 /* --- CAIXA DE PESQUISA INTEGRADA (.search-box) --- */
 .search-box {
@@ -330,6 +347,57 @@ li:hover {
     display: inline-block;
 }
 
+.coments {
+    background-color: #3d3d3d;
+    padding: 20px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition: transform 0.5s ease-in-out;
+}
+.coments.show {
+    transform: translateY(0);
+}
+
+button {
+   
+    bottom: 10vh;
+    margin-bottom: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.coments label {
+    font-family: "Poppins", sans-serif;
+    font-size: 15px;
+    margin-bottom: 2px;
+    color: #222;
+}
+
+.coments input[type="text"] {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 8px;
+    width: 60%;
+    box-sizing: border-box;
+}
 
 footer {
     margin-top: 8rem;
@@ -419,3 +487,5 @@ a {
 }
 
 }
+
+
