@@ -122,7 +122,7 @@ header.scrolled {
 }
 
 /* --- CAIXA DE PESQUISA INTEGRADA (.search-box) --- */
-.search-box {
+.search-box, .nome_exibicao, .comentario {
     display: flex;
     align-items: center;
     position: relative;
@@ -140,6 +140,9 @@ header.scrolled {
     margin: 0;
     overflow: hidden;
     /* Importante para o visual integrado */
+}
+.nome_exibicao, .comentario{
+    width: 30px;
 }
 
 /* Contêiner da Lupa (alinhado por Flexbox) */
@@ -364,20 +367,34 @@ li:hover {
     transform: translateY(0);
 }
 
-button {
-   
-    bottom: 10vh;
-    margin-bottom: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
+
+.publicar {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 18px auto 0 auto;
+    padding: 12px 0;
+    font-size: 1rem;
+    font-family: "Poppins", Arial, sans-serif;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
     border: none;
-    border-radius: 5px;
-    background-color: #007BFF;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+}
+.publicar:hover, .publicar:focus {
+    background: linear-gradient(90deg, #0056b3 60%, #007BFF 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 24px rgba(0,123,255,0.18);
+    outline: none;
+}
+.publicar:active {
+    background: #003d80;
+    transform: scale(0.98);
 }
 
 
@@ -389,15 +406,58 @@ button {
 }
 
 .coments input[type="text"] {
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 2px solid #4a4a4a;
     font-size: 15px;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 8px;
-    width: 60%;
+    margin-bottom: 12px;
+    width: 40%;
     box-sizing: border-box;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    transition: all 0.3s ease;
+    outline: none;
 }
+
+.coments input[type="text"]:focus {
+   
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+    
+}
+
+.coments input[type="text"]::placeholder {
+    color: #808080;
+}
+
+/* Responsividade para os comentários */
+@media screen and (max-width: 768px) {
+    .coments.show {
+        width: 100%;
+       padding: 0;
+    }
+
+    .coments input[type="text"] {
+        width: 90%;
+        margin: 5vw;
+    }
+
+    .coments h1 {
+        margin-top: 5vh;
+        font-size: 1.5rem;
+    }
+
+    .coments p {
+        font-size: 0.9rem;
+    }
+    /* Responsividade para o botão publicar */
+    .publicar {
+        max-width: 90vw;
+        font-size: 0.95rem;
+        padding: 11px 0;
+    }
+}
+
 
 footer {
     margin-top: 8rem;
@@ -485,6 +545,7 @@ a {
     #pesquisa::placeholder {
     font-size: smaller;
 }
+
 
 }
 
