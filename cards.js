@@ -118,3 +118,26 @@ document.querySelectorAll('.btn-comentarios').forEach(btn => {
         comments.classList.toggle('show');
     });
 });
+
+
+// Seleciona o painel de comentários
+const painel = document.querySelector('.coments');
+
+// Função para mostrar/ocultar o painel
+function togglePainel() {
+  painel.classList.toggle('show');
+}
+
+// Fecha o painel se clicar fora
+document.addEventListener('click', function(event) {
+  if (!painel.contains(event.target) && painel.classList.contains('show')) {
+    painel.classList.remove('show');
+  }
+});
+
+// Exemplo de botão para abrir o painel (adicione na sua página)
+const btnAbrir = document.querySelector('#btnAbrirComentarios');
+btnAbrir.addEventListener('click', function(e) {
+  e.stopPropagation(); // evita que o clique feche imediatamente
+  togglePainel();
+});

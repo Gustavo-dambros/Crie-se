@@ -1,552 +1,541 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --header-height: 12vh;
-    --border-color: rgba(255, 255, 255, 0.133);
-    --muted-bg: #c7c7c7;
-    --card-bg: #121212;
-    --radius-lg: 30px;
-    --radius-sm: 10px;
+  --header-height: 12vh;
+  --border-color: rgba(255, 255, 255, 0.133);
+  --muted-bg: #c7c7c7;
+  --card-bg: #121212;
+  --radius-lg: 30px;
+  --radius-sm: 10px;
 }
 
 /* Reset */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 body {
-    background-color: var(--muted-bg);
+  background-color: var(--muted-bg);
 }
 
 /* Overlay para quando o card estiver expandido */
 .overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1001;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1001;
 }
 
 .overlay.active {
-    display: block;
+  display: block;
 }
 
 /* --- HEADER GERAL --- */
 header {
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 6%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 2000px;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0rem 1rem;
-    backdrop-filter: blur(15px);
-    min-height: 30px;
-    z-index: 1000;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 6%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 2000px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+  backdrop-filter: blur(15px);
+  min-height: 30px;
+  z-index: 1000;
 }
 
 header.scrolled {
-
-    border-bottom: 1px solid rgb(255, 255, 255);
-    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  transition: background-color 0.3s ease, border-bottom 0.3s ease;
 }
 
 #logo {
-    margin-top: -10%;
-    margin-left: 0;
-    height: clamp(35px, 6vw, 45px);
-
+  margin-top: -10%;
+  margin-left: 0;
+  height: clamp(35px, 6vw, 45px);
 }
 
 .right_header {
-    width: 20%;
+  width: 20%;
 }
-
 
 /* --- CENTRALIZAÇÃO E BUSCA --- */
 
 /* Contêiner Central: Responsável por expandir e centralizar o conteúdo */
 .center_header {
-    display: flex;
-    /* Ativa o Flexbox para alinhamento */
-    flex-grow: 1;
-    /* Faz o elemento ocupar todo o espaço restante */
-    justify-content: center;
-    /* CENTRALIZA o conteúdo (search-filter-container) */
-    align-items: center;
-    width: auto;
-    /* Remove a largura fixa para permitir o crescimento */
-    color: white;
-    margin-left: 12vw;
+  display: flex;
+  /* Ativa o Flexbox para alinhamento */
+  flex-grow: 1;
+  /* Faz o elemento ocupar todo o espaço restante */
+  justify-content: center;
+  /* CENTRALIZA o conteúdo (search-filter-container) */
+  align-items: center;
+  width: auto;
+  /* Remove a largura fixa para permitir o crescimento */
+  color: white;
+  margin-left: 12vw;
+}
+
+.container-busca {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Contêiner da Busca e Filtro (limita o tamanho do input) */
 .search-filter-container {
-    margin-top: 0%;
-    display: flex;
-    align-items: center;
-    gap: 0;
-    /* Remove o gap, pois os itens estão juntos no .search-box */
-    width: 55%;
-    max-width: 500px;
+  margin-top: 0%;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  /* Remove o gap, pois os itens estão juntos no .search-box */
+  width: 55%;
+  max-width: 500px;
 }
 
 .container-comentarios {
-    position: fixed;
-    left: 0;
-    bottom: -100px;
-    width: 100vw;
-    height: 70px;
-    /* background removido para transparência */
-    z-index: 2000;
-    box-shadow: 0 -2px 16px rgba(0,0,0,0.08);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
-    padding: 0 24px;
-    transition: bottom 0.4s cubic-bezier(.4,1.7,.6,1);
+  position: fixed;
+  left: 0;
+  bottom: -100px;
+  width: 100vw;
+  height: 70px;
+  /* background removido para transparência */
+  z-index: 2000;
+  box-shadow: 0 -2px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 0 24px;
+  transition: bottom 0.4s cubic-bezier(0.4, 1.7, 0.6, 1);
 }
 
 /* --- CAIXA DE PESQUISA INTEGRADA (.search-box) --- */
-.search-box, .nome_exibicao, .comentario {
-    display: flex;
-    align-items: center;
-    position: relative;
-    /* Mantido relative apenas para referência, mas o alinhamento é por Flexbox */
-    flex: 1;
-    min-width: 150px;
+.search-box,
+.nome_exibicao,
+.comentario {
+  display: flex;
+  align-items: center;
+  position: relative;
+  /* Mantido relative apenas para referência, mas o alinhamento é por Flexbox */
+  flex: 1;
+  min-width: 150px;
 
-    /* Estilo da caixa externa */
-    height: 4vh;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border-color);
-    background: white;
+  /* Estilo da caixa externa */
+  height: 4vh;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+  background: white;
 
-    padding: 0;
-    margin: 0;
-    overflow: hidden;
-    /* Importante para o visual integrado */
+  padding: 0;
+  margin: 0;
+  margin-top: 10vh;
+  overflow: hidden;
+  /* Importante para o visual integrado */
 }
-.nome_exibicao, .comentario{
-    width: 30px;
+.nome_exibicao,
+.comentario {
+  width: 30px;
 }
 
 /* Contêiner da Lupa (alinhado por Flexbox) */
 .search-icon-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0px;
-    height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0px;
+  height: 100%;
 }
 
 .search-icon-wrapper img {
-    height: 20px;
-    margin-left: 10px;
+  height: 20px;
+  margin-left: 10px;
 }
 
 /* Campo de Input de Texto */
 .search-box .search-input {
-    flex-grow: 1;
-    /* Ocupa a maior parte do espaço */
-    height: 90%;
-    padding: 0 10px;
-    /* Padding ajustado */
-    border: none;
-    background: transparent;
-    outline: none;
-font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    caret-color: #121212;
-    font-size: 14px;
+  flex-grow: 1;
+  /* Ocupa a maior parte do espaço */
+  height: 90%;
+  padding: 0 10px;
+  /* Padding ajustado */
+  border: none;
+  background: transparent;
+  outline: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  caret-color: #121212;
+  font-size: 14px;
 }
 
 #pesquisa::placeholder {
-    color: #121212;
+  color: #121212;
 }
 
 #pesquisa::placeholder:focus {
-    color: #414141;
+  color: #414141;
 }
-
 
 /* Botão de Filtro (Integrado) */
 .search-box .filtro {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border: none;
 
-    /* Encaixe visual */
-    height: 100%;
-    width: 5vh;
-    cursor: pointer;
-    border-left: 1px solid var(--border-color);
-    /* Linha divisória sutil */
+  /* Encaixe visual */
+  height: 100%;
+  width: 5vh;
+  cursor: pointer;
+  border-left: 1px solid var(--border-color);
+  /* Linha divisória sutil */
 
-    /* Garante que o canto arredondado final seja o do botão */
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    box-shadow: none;
+  /* Garante que o canto arredondado final seja o do botão */
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  box-shadow: none;
 }
 
 .filtro img {
-    height: 25px;
+  height: 25px;
 }
-
 
 /* --- ESTILOS DO DROPDOWN DE FILTROS --- */
 
 /* Você pode remover a classe .center_item se ela não for mais usada */
 .filter-dropdown-wrapper {
-    position: relative;
+  position: relative;
 }
 
 .filtros {
-    position: absolute;
-    top: 110%;
-    right: 0;
-    width: 200px;
-    /* Valor fixo em px é melhor que vw para dropdowns */
-    padding: 10px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px #121212;
+  position: absolute;
+  top: 110%;
+  right: 0;
+  width: 200px;
+  /* Valor fixo em px é melhor que vw para dropdowns */
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px #121212;
 
-    transform-origin: top;
-    transform: scaleY(0);
-    opacity: 0;
-    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
-    z-index: 10000;
-    visibility: hidden;
-    /* Esconde o dropdown para não ocupar espaço */
+  transform-origin: top;
+  transform: scaleY(0);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+  z-index: 10000;
+  visibility: hidden;
+  /* Esconde o dropdown para não ocupar espaço */
 }
 
 .filtros.ativo {
-    transform: scaleY(1);
-    opacity: 1;
-    visibility: visible;
-    transition-delay: 0s;
-    /* Garante que a transição comece imediatamente */
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+  /* Garante que a transição comece imediatamente */
 }
 
 .titulo-lista {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    padding: 10px 15px;
-    border-radius: 4px;
-    cursor: pointer;
-    color: #121212;
-    font-size: 14px;
-    margin-bottom: 5px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #121212;
+  font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .lista-cursos,
 .custom-select-wrapper {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    max-height: 150px;
-    /* Limita a altura para rolagem */
-    overflow-y: auto;
-    /* Adiciona barra de rolagem se necessário */
-    border: 1px solid var(--border-color);
-    border-radius: 4px;
-    background-color: #ffffff;
-
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  max-height: 150px;
+  /* Limita a altura para rolagem */
+  overflow-y: auto;
+  /* Adiciona barra de rolagem se necessário */
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: #ffffff;
 }
 
 .seta {
-    /* Define o tempo de transição (para a animação ser suave) */
-    transition: transform 0.3s ease;
+  /* Define o tempo de transição (para a animação ser suave) */
+  transition: transform 0.3s ease;
 
-    /* Move a seta para a direita */
-    margin-left: 8px;
+  /* Move a seta para a direita */
+  margin-left: 8px;
 
-    /* Garante que ela esteja alinhada verticalmente */
-    display: inline-block;
+  /* Garante que ela esteja alinhada verticalmente */
+  display: inline-block;
 }
 
-.Lista-cursos:not(.hidden)~.titulo-lista .seta,
+.Lista-cursos:not(.hidden) ~ .titulo-lista .seta,
 .titulo-lista.aberto .seta {
-    /* Se você adicionar a classe 'aberto' via JS */
-    /* Gira a seta 180 graus */
-    transform: rotate(-90deg);
+  /* Se você adicionar a classe 'aberto' via JS */
+  /* Gira a seta 180 graus */
+  transform: rotate(-90deg);
 }
 
 .opcoes,
 .custom-option {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    font-size: 14px;
-    color: #121212;
-    padding: 10px 15px;
-    margin-bottom: 2px;
-    cursor: pointer;
-    list-style: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #121212;
+  padding: 10px 15px;
+  margin-bottom: 2px;
+  cursor: pointer;
+  list-style: none;
 }
 
 li:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .titulo-lista:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }
 
 .hidden {
-    display: none !important;
-    /* Força o elemento a desaparecer */
+  display: none !important;
+  /* Força o elemento a desaparecer */
 }
 
 /* ... Outros estilos de cards ... */
 #listaAnuncios {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: var(--muted-bg);
-    justify-content: center;
-    margin-top: calc(var(--header-height) + 8vh);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: var(--muted-bg);
+  justify-content: center;
+  margin-top: calc(var(--header-height) + 8vh);
 }
 
 .card {
-    width: 180px;
-    height: 300px;
-    border-radius: var(--radius-lg);
-    background-color: var(--card-bg);
-    margin: 0 5vh;
-    cursor: pointer;
-    transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
+  width: 180px;
+  height: 300px;
+  border-radius: var(--radius-lg);
+  background-color: var(--card-bg);
+  border-color: 1px solid #be0d0d;
+  margin: 0 5vh;
+  cursor: pointer;
+  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease;
 }
 
 /* Estilo para o card expandido */
 .card.expanded {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 360px;
-    height: 600px;
-    z-index: 1002;
-    margin: 0;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 360px;
+  height: 600px;
+  z-index: 1002;
+  margin: 0;
 }
 
 .card svg {
-    width: 24px;
-    height: 24px;
-    display: inline-block;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
 }
 
+
+/*Comentarios*/
+/* Painel de comentários */
 .coments {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 400px;
+  background-color: #3d3d3d;
+  padding: 20px;
+  border-radius: 10px 0 0 10px;
+  box-shadow: -4px 0 8px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.5s ease-in-out;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Quando ativo */
+.coments.show {
+  transform: translateX(0);
+}
+
+/* Área rolável dos comentários */
+.coments .comentarios-lista {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  height: 10vh;
+}
+
+.coments .comentarios-lista p{
+  margin-bottom: 20px;
+}
+
+/* Inputs fixos na parte inferior */
+.coments input[type="text"],
+.coments .publicar {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+/*Estilo dos inputs*/
+.coments input[type="text"] {
+    height: 5vh;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.coments input[type="text"]:focus{
+     border: none;
+ 
+    outline: none;
+    transition: 0.3s;
+}
+
+
+/*Botao publicar*/
+.publicar{
+    background-color: #0085ff;
+    border: 1px solid #0070d8;
+    height: 5vh;
+    border-radius: 10px;
+}
+
+.publicar:hover{
+    cursor: pointer;
+    background-color: #004a8a;
+}
+
+.publicar:active{
+    transform: scale(0.9);
+    background-color: #004a8a;
+    border: 1px solid #003f73;
+}
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+  /* Painel de comentários */
+  .coments {
     background-color: #3d3d3d;
     padding: 20px;
     border-radius: 10px 10px 0 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+    height: 65%;
     text-align: center;
     position: fixed;
     bottom: 0;
     left: 0;
     transform: translateY(100%);
     transition: transform 0.5s ease-in-out;
-}
-.coments.show {
+  }
+
+  /* Mostra o painel */
+  .coments.show {
     transform: translateY(0);
-}
-
-
-.publicar {
-    display: block;
-    width: 100%;
-    max-width: 300px;
-    margin: 18px auto 0 auto;
-    padding: 12px 0;
-    font-size: 1rem;
-    font-family: "Poppins", Arial, sans-serif;
-    font-weight: 600;
-    color: #fff;
-    background: linear-gradient(90deg, #007BFF 60%, #0056b3 100%);
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    cursor: pointer;
-    letter-spacing: 1px;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
-}
-.publicar:hover, .publicar:focus {
-    background: linear-gradient(90deg, #0056b3 60%, #007BFF 100%);
-    transform: translateY(-2px) scale(1.03);
-    box-shadow: 0 8px 24px rgba(0,123,255,0.18);
-    outline: none;
-}
-.publicar:active {
-    background: #003d80;
-    transform: scale(0.98);
-}
-
-
-.coments label {
-    font-family: "Poppins", sans-serif;
-    font-size: 15px;
-    margin-bottom: 2px;
-    color: #222;
-}
-
-.coments input[type="text"] {
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 2px solid #4a4a4a;
-    font-size: 15px;
-    font-family: "Poppins", sans-serif;
-    margin-bottom: 12px;
-    width: 40%;
-    box-sizing: border-box;
-    background-color: #2a2a2a;
-    color: #ffffff;
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-.coments input[type="text"]:focus {
-   
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-    
-}
-
-.coments input[type="text"]::placeholder {
-    color: #808080;
-}
-
-/* Responsividade para os comentários */
-@media screen and (max-width: 768px) {
-    .coments.show {
-        width: 100%;
-       padding: 0;
-    }
-
-    .coments input[type="text"] {
-        width: 90%;
-        margin: 5vw;
-    }
-
-    .coments h1 {
-        margin-top: 5vh;
-        font-size: 1.5rem;
-    }
-
-    .coments p {
-        font-size: 0.9rem;
-    }
-    /* Responsividade para o botão publicar */
-    .publicar {
-        max-width: 90vw;
-        font-size: 0.95rem;
-        padding: 11px 0;
-    }
-}
-
-
-footer {
-    margin-top: 8rem;
-    width: 100%;
-    max-width: 2000px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 100px;
-    background-color: #121212;
-    color: white;
-    display: flex;
-    font-family: "Poppins", sans-serif;
-    font-weight: 200;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
     padding: 20px;
-}
+  }
 
-footer h1,
-p {
-    font-family: "Poppins", sans-serif;
-    font-weight: 500;
-    margin: 5px 0;
-    font-size: 12px;
-    font-weight: 500;
-    color: white;
-}
+  /* Inputs e botão dentro do painel */
+  .coments input[type="text"] {
+    width: 90%;
+    margin: 10px auto;
+  }
 
-.p {
-    font-size: 10px;
-    font-weight: 400;
-}
+  .publicar {
+    max-width: 90vw;
+    font-size: 0.95rem;
+    padding: 11px 0;
+  }
 
-footer h1:hover {
-    
-    text-decoration: underline;
-    cursor: pointer;
-}
+  /* Títulos e textos do painel */
+  .coments h1, .coments h2 {
+    margin-top: 5vh;
+    font-size: 1.5rem;
+  }
 
-a {
-  text-decoration: none;
-}
+  .coments p {
+    font-size: 0.9rem;
+  }
 
+  /* Ajustes gerais do header */
+  .center_header {
+    margin-left: 5vh;
+  }
 
-@media (max-width: 768px) {
-    footer {
-        margin-top: 3rem;
-    }
+  .search-filter-container {
+    width: 80%;
+    margin-left: 0;
+    margin-right: 10vw;
+    max-width: none;
+  }
 
-    footer h1,
-    p {
-        font-size: 10px;
-    }
-    .center_header{
-        margin-left: 5vh;
-    }
-    .search-filter-container {
-        width: 80%;
-        max-width: 400px;
-        margin-right: 10vw;
-        max-width: none;
-        margin-left: 0;
-       
-    }
-    .right_header {
-        width: 0%;
-    }
-    .left_header {
-        width: 10%;
-        display: flex;
-        justify-content: center;
-    }
-    .search-box {
-        margin-left: 5vw;
-        height: 3.5vh;
-    }
-    .search-input, #pesquisa{
-        padding: 0px;
-        padding-left: 5px;
-    }
-    .search-input{
-        width: 2vw;
-    }
-    #pesquisa::placeholder {
+  .right_header {
+    width: 0%;
+  }
+
+  .left_header {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .search-box {
+    margin-left: 5vw;
+    height: 3.5vh;
+  }
+
+  .search-input,
+  #pesquisa {
+    padding-left: 5px;
+  }
+
+  .search-input {
+    width: 90%;
+  }
+
+  #pesquisa::placeholder {
     font-size: smaller;
+  }
+
+/*card expandido*/
+.card.expanded {
+
+  width: 300px;
+  height: 540px;
+ 
 }
 
 
+  /* Ajustes no footer */
+  footer {
+    margin-top: 3rem;
+  }
+
+  footer h1,
+  footer p {
+    font-size: 10px;
+  }
 }
-
-
